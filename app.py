@@ -13,7 +13,7 @@ import ta
 # ------------------------------------
 st.set_page_config(page_title="Stock Price Prediction using LSTM", layout="wide")
 
-st.title("📈 Stock Price Trend Prediction using LSTM")
+st.title(" Stock Price Trend Prediction using LSTM")
 st.write("Predict future stock prices using historical data and LSTM deep learning model")
 
 # ------------------------------------
@@ -40,7 +40,7 @@ model = load_lstm()
 # Main Logic
 # ------------------------------------
 if run_button:
-    st.subheader(f"📊 Stock Data: {ticker}")
+    st.subheader(f" Stock Data: {ticker}")
 
     df = yf.download(ticker, start=start_date, end=end_date)
 
@@ -65,7 +65,7 @@ if run_button:
     # ------------------------------------
     # Price + MA Plot
     # ------------------------------------
-    st.subheader("📉 Closing Price with Moving Averages")
+    st.subheader(" Closing Price with Moving Averages")
 
     fig1, ax1 = plt.subplots(figsize=(10, 4))
     ax1.plot(df["Close"], label="Close")
@@ -77,7 +77,7 @@ if run_button:
     # ------------------------------------
     # RSI Plot
     # ------------------------------------
-    st.subheader("📊 Relative Strength Index (RSI)")
+    st.subheader(" Relative Strength Index (RSI)")
 
     fig2, ax2 = plt.subplots(figsize=(10, 3))
     ax2.plot(df["RSI"])
@@ -119,7 +119,7 @@ if run_button:
     # ------------------------------------
     # Actual vs Predicted Plot
     # ------------------------------------
-    st.subheader("📈 Actual vs Predicted Prices")
+    st.subheader(" Actual vs Predicted Prices")
 
     fig3, ax3 = plt.subplots(figsize=(10, 4))
     ax3.plot(actual, label="Actual")
@@ -134,4 +134,5 @@ if run_button:
     next_day = model.predict(last_seq)
     next_price = close_scaler.inverse_transform(next_day)
 
-    st.success(f"📌 Predicted Next Day Closing Price: ${next_price[0][0]:.2f}")
+
+    st.success(f" Predicted Next Day Closing Price: ${next_price[0][0]:.2f}")
